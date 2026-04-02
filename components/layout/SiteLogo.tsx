@@ -5,7 +5,12 @@ import Image from 'next/image'
 export function SiteLogo() {
   return (
     <Link href='/' className='group flex items-center gap-2.5'>
-      <Image src='/logo.svg' alt='logo' width={36} height={36} />
+      <Image
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/logo.svg`}
+        alt='logo'
+        width={36}
+        height={36}
+      />
       <span className='text-lg font-bold lowercase tracking-tight text-ink'>李佳棋</span>
     </Link>
   )

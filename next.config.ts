@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
   /** 静态导出目录；中间构建仍写入项目根下的 `.next` */
   distDir: 'docs',
   basePath,
+  /** 供客户端组件中拼接 public 资源路径（与 basePath 一致） */
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   /** 勿与 GitHub Pages 子路径同时使用 `./` 的 assetPrefix，否则资源路径会错乱 */
   images: {
     unoptimized: true,
