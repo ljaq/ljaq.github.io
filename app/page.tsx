@@ -1,65 +1,100 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button, SectionLabel, SketchFrame } from "@/components/ui";
+import { BleedRule, ContentBleedSection } from "@/components/layout/ContentBleed";
+import { SiteShell } from "@/components/layout/SiteShell";
+import { getAllPostsMeta } from "@/lib/posts";
 
-export default function Home() {
+export default function HomePage() {
+  const latest = getAllPostsMeta().slice(0, 2);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <SiteShell>
+      <ContentBleedSection bleed="bottom" className="mb-12 md:mb-16">
+        <SectionLabel index="01">头图</SectionLabel>
+        <SketchFrame as="section" mediaStyle className="mt-6 max-w-2xl">
+          <p className="py-12 text-center text-sm text-neutral-500 md:py-16">
+            此处可放大幅线稿插画（PNG / SVG），双线框与四角标记与头图区块对齐
           </p>
+        </SketchFrame>
+        <BleedRule />
+        <h1 className="mt-10 max-w-2xl text-3xl font-semibold leading-snug tracking-tight text-ink md:text-[2.35rem] md:leading-tight">
+          一家承包
+          <span className="text-accent-magenta">品味</span>
+          的
+          <br />
+          <span className="text-accent-magenta">个人网站与作品集</span>
+        </h1>
+        <BleedRule />
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/80">
+          全栈 / 产品向开发者（示例）。本站采用{" "}
+          <strong className="font-semibold text-accent-red">Next.js 预渲染</strong>
+          、MDX 文章与左侧固定导航；右侧内容区略白于点阵底，标题横线全宽且在侧栏层级之下。
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Button href="/about" variant="primary">
+            查看简历
+          </Button>
+          <Button href="/projects" variant="outline">
+            项目作品
+          </Button>
+          <Button href="/blog" variant="ghost">
+            阅读文章 →
+          </Button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </ContentBleedSection>
+
+      <ContentBleedSection bleed="both" className="mb-16 md:mb-24">
+        <div className="grid gap-8 md:grid-cols-2">
+          <SketchFrame as="section">
+            <SectionLabel index="02">能力</SectionLabel>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink">
+              你能写在这里
+            </h2>
+            <ul className="mt-4 space-y-2 text-ink/80">
+              <li className="flex gap-2">
+                <span className="text-ink/40">—</span>
+                前端工程与组件化设计系统
+              </li>
+              <li className="flex gap-2">
+                <span className="text-ink/40">—</span>
+                Node / 边缘函数与预渲染策略
+              </li>
+              <li className="flex gap-2">
+                <span className="text-ink/40">—</span>
+                与设计师协作的交付节奏
+              </li>
+            </ul>
+          </SketchFrame>
+          <SketchFrame as="section">
+            <SectionLabel index="03">最近文章</SectionLabel>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-ink">
+              博客
+            </h2>
+            {latest.length === 0 ? (
+              <p className="mt-4 text-ink/60">在 content/posts 下添加 .mdx 即可。</p>
+            ) : (
+              <ul className="mt-4 space-y-3">
+                {latest.map((p) => (
+                  <li key={p.slug}>
+                    <Link
+                      href={`/blog/${p.slug}`}
+                      className="text-ink underline decoration-dotted decoration-ink/35 underline-offset-4 hover:decoration-accent-magenta"
+                    >
+                      {p.title}
+                    </Link>
+                    <p className="text-sm text-ink/50">{p.date}</p>
+                  </li>
+                ))}
+              </ul>
+            )}
+            <div className="mt-6">
+              <Button href="/blog" variant="outline">
+                全部文章
+              </Button>
+            </div>
+          </SketchFrame>
         </div>
-      </main>
-    </div>
+      </ContentBleedSection>
+    </SiteShell>
   );
 }

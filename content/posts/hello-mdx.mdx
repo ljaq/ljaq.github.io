@@ -1,0 +1,24 @@
+---
+title: 用 MDX 写第一篇博客
+description: 说明本站如何预渲染 MDX 与通用组件结构。
+date: "2026-03-15"
+tags:
+  - Next.js
+  - MDX
+---
+
+这是一篇示例文章。正文支持 **粗体**、列表与 `行内代码`。
+
+## 小节标题
+
+- 文章放在 `content/posts/*.mdx`
+- 构建时通过 `generateStaticParams` 全量预渲染
+- 导航与按钮在 `components/ui/` 中复用
+
+```ts
+export async function generateStaticParams() {
+  return getPostSlugs().map((slug) => ({ slug }));
+}
+```
+
+更多内容直接编辑此文件即可。
