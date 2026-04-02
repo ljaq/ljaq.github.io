@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Button, SectionLabel, SketchFrame } from '@/components/ui'
+import { AsciiFramePlayer, Button, GridFrame, SectionLabel, SketchFrame } from '@/components/ui'
 import { BleedRule, ContentBleedSection } from '@/components/layout/ContentBleed'
 import { SiteShell } from '@/components/layout/SiteShell'
 import { getAllPostsMeta } from '@/lib/posts'
@@ -9,20 +9,16 @@ export default function HomePage() {
 
   return (
     <SiteShell>
-      <ContentBleedSection bleed='bottom' className='mb-12 md:mb-16'>
-        <SectionLabel index='01'>头图</SectionLabel>
-        <SketchFrame as='section' mediaStyle className='mt-6 max-w-2xl'>
-          <p className='py-12 text-center text-sm text-neutral-500 md:py-16'>
-            此处可放大幅线稿插画（PNG / SVG），双线框与四角标记与头图区块对齐
-          </p>
-        </SketchFrame>
+      <ContentBleedSection bleed='both' className='mb-12 md:mb-16'>
+        <GridFrame className='p-0 overflow-hidden'>
+          <AsciiFramePlayer className='font-mono text-sm text-neutral-500 whitespace-pre-wrap leading-none text-center' />
+        </GridFrame>
         <BleedRule />
         <h1 className='mt-10 max-w-2xl text-3xl font-semibold leading-snug tracking-tight text-ink md:text-[2.35rem] md:leading-tight'>
-          一家承包
-          <span className='text-accent-magenta'>品味</span>
-          的
+          Hello,
           <br />
-          <span className='text-accent-magenta'>个人网站与作品集</span>
+          我是
+          <span className='text-accent-magenta'>李佳棋</span>
         </h1>
         <BleedRule />
         <p className='mt-6 max-w-xl text-lg leading-relaxed text-ink/80'>

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { GridFrame } from '@/components/ui/GridFrame'
 import { IconGithub, IconMail, IconRss } from '@/components/icons/NavIcons'
+import { SketchDivider } from './SketchDivider'
 
 function IconX({ className }: { className?: string }) {
   return (
@@ -19,20 +20,26 @@ const items = [
 
 export function SocialSketchGrid() {
   return (
-    <div className='grid grid-cols-2 gap-2'>
-      {items.map(({ href, label, Icon }) => (
-        <GridFrame key={label} fill className='min-h-[3.25rem]'>
-          <Link
-            href={href}
-            className='flex min-h-[3.25rem] w-full items-center justify-center text-neutral-600 transition hover:text-neutral-900'
-            aria-label={label}
-            target={href.startsWith('http') ? '_blank' : undefined}
-            rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-          >
-            <Icon className='size-5' />
-          </Link>
-        </GridFrame>
-      ))}
+    <div>
+      <SketchDivider />
+      <div className='p-4'>
+        <div className='grid grid-cols-2 gap-2'>
+          {items.map(({ href, label, Icon }) => (
+            <GridFrame key={label} fill className='min-h-[3.25rem]'>
+              <Link
+                href={href}
+                className='flex min-h-[3.25rem] w-full items-center justify-center text-neutral-600 transition hover:text-neutral-900'
+                aria-label={label}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                <Icon className='size-5' />
+              </Link>
+            </GridFrame>
+          ))}
+        </div>
+      </div>
+      <SketchDivider />
     </div>
   )
 }

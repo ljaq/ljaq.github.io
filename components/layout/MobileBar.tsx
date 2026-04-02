@@ -12,7 +12,7 @@ const links = [
 
 export function MobileBar() {
   return (
-    <div className='relative z-40 shrink-0 border-x border-b border-[color:var(--grid-border-color)] bg-[#f7f7f7] dot-grid md:hidden'>
+    <div className='sticky top-0 z-40 shrink-0 border-x border-b border-[color:var(--grid-border-color)] bg-[#f7f7f7] dot-grid md:hidden'>
       <div className='flex items-center justify-between gap-3 px-4 py-3'>
         <SiteLogo />
       </div>

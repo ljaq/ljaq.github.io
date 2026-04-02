@@ -1,3 +1,4 @@
+export { AsciiFramePlayer } from './AsciiFramePlayer'
 export { Button } from './Button'
 export type { ButtonVariant } from './Button'
 export { CornerMarks } from './CornerMarks'

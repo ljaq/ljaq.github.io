@@ -12,7 +12,7 @@ export function SketchFrame({ children, className = '', as: Tag = 'div', mediaSt
   return (
     <GridFrame fill double={mediaStyle} corners={mediaStyle} className={`flex h-full min-h-0 flex-col ${className}`}>
       <Tag
-        className={`flex min-h-0 flex-1 flex-col p-6 md:p-8 ${mediaStyle ? 'items-center justify-center text-center' : ''}`}
+        className={`flex min-h-0 flex-1 flex-col p-6 ${mediaStyle ? 'items-center justify-center text-center' : ''}`}
       >
         {children}
       </Tag>

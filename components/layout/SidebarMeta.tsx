@@ -5,7 +5,7 @@ import { SidebarClock } from './SidebarClock'
 /** 底部设置区：跟随系统、语言、时间等 */
 export function SidebarMeta() {
   return (
-    <div className='space-y-3 text-[11px] text-neutral-500'>
+    <div className='space-y-3 text-[11px] text-neutral-500 px-4 mt-4'>
       <div className='flex items-center justify-between gap-2'>
         <span className='shrink-0'>主题</span>
         <select
@@ -29,7 +29,8 @@ export function SidebarMeta() {
           <option value='en'>English</option>
         </select>
       </div>
-      <div className='flex items-center justify-between gap-2 border-t border-[color:var(--grid-border-color)] pt-3'>
+      <div className='border-t border-[color:var(--grid-border-color)] mx-[-16px] mb-2'></div>
+      <div className='flex items-center justify-between gap-2'>
         <span className='font-mono text-[10px] uppercase tracking-wider text-neutral-400'>time</span>
         <SidebarClock />
       </div>

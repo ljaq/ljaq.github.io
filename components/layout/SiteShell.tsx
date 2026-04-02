@@ -7,18 +7,22 @@ type SiteShellProps = {
 }
 
 /**
- * 居中外壳：`mx-2 max-w-4xl md:mx-4 md:flex-row lg:mx-auto` ——
- * 菜单+内容整体居中，两侧留白露点阵底；侧栏 z-30、主栏 z-10、独立滚动。
+ * 居中外壳：滚动在 document（html/body）。
+ * 外层用块级堆叠，勿对整页再套 flex-col——否则主栏上 flex-1 在移动端会沿「竖轴」生效，父高为 auto 时易把高度算死、无法纵向滚动。
+ * 主栏 flex-1 仅 md+（横向占满剩余宽度）；小屏单列不设 flex-1。
  */
 export function SiteShell({ children }: SiteShellProps) {
   return (
-    <div className='dot-grid flex h-[100dvh] min-h-0 flex-col overflow-hidden'>
+    <div className='dot-grid min-h-dvh'>
       <MobileBar />
-      {/* 与站点 HTML 一致：居中容器包裹侧栏 + 主内容，非全宽铺满 */}
-      <div className='mx-2 flex min-h-0 min-w-0 w-full max-w-4xl flex-1 flex-col md:mx-4 md:flex-row md:gap-4 lg:mx-auto'>
+      <div className='mx-2 w-full max-w-4xl md:mx-4 lg:mx-auto'>
         <SiteSidebar />
-        <div className='relative z-10 flex min-h-0 min-w-0 flex-1 flex-col overflow-y-auto overscroll-y-none border-x border-[color:var(--grid-border-color)] bg-[var(--content-bg)]'>
-          <main className='relative z-10 flex-1 px-6 py-8 md:px-8 md:py-10 lg:px-10 lg:py-10'>{children}</main>
+        <div className='relative z-10 flex min-h-[100vh] min-w-0 flex-col border-x border-[color:var(--grid-border-color)] bg-[var(--content-bg)] md:ml-[calc(260px+1rem)] md:w-[calc(100%-260px-1rem)] md:min-w-0'>
+          <main
+            className='relative z-10 px-4 py-8 md:px-8 md:py-10 lg:px-4 lg:py-10 [--bleed-shift:calc(0.5rem+1px+1.5rem)] md:[--bleed-shift:calc(1rem+260px+1rem+1px+2rem)] lg:[--bleed-shift:calc(50vw-28rem+260px+1rem+1px+2.5rem)]'
+          >
+            {children}
+          </main>
           <SiteFooter />
         </div>
       </div>

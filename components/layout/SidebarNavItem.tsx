@@ -15,7 +15,7 @@ export function SidebarNavItem({ href, icon, children }: SidebarNavItemProps) {
   const active = href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)
 
   return (
-    <GridFrame active={active} className='mb-2'>
+    <GridFrame active={active} className='border-l-0 border-r-0 mt-[-1px]'>
       <Link
         href={href}
         className='flex items-center gap-3 px-3 py-2.5 text-[13px] font-medium text-neutral-800 transition hover:text-neutral-950'

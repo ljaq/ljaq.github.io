@@ -13,6 +13,9 @@
   --accent-red: #e11d48;
   /* 浅灰直边 1px */
   --grid-border-color: #d4d4d4;
+  /* 系统字体栈，不依赖 Google Fonts / 构建时拉取 */
+  --font-body: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  --font-mono-family: ui-monospace, 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', monospace;
 }
 
 @theme inline {
@@ -26,8 +29,8 @@
   --color-grid-border: var(--grid-border-color);
   --color-accent-magenta: var(--accent-magenta);
   --color-accent-red: var(--accent-red);
-  --font-sans: var(--font-body), 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-  --font-mono: var(--font-mono), ui-monospace, monospace;
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono-family);
   --shadow-sketch: 3px 3px 0 0 var(--ink);
 }
 
@@ -35,16 +38,16 @@ html {
   overflow-x: hidden;
   width: 100%;
   /* 抑制 macOS/iOS 滚动到顶/底时的橡皮筋效果 */
-  overscroll-behavior-y: none;
+  /* overscroll-behavior-y: none; */
 }
 
 body {
   width: 100%;
   overflow-x: hidden;
-  overscroll-behavior-y: none;
+  /* overscroll-behavior-y: none; */
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body), 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-family: var(--font-body);
 }
 
 /* 点阵纸（全页底） */
@@ -62,4 +65,4 @@ body {
   background-size: 20px 20px;
 }
 
-/* 全屏宽横线由 ContentBleed / MdxH2/H3 的 fixed 线绘制（主栏滚动区会裁切 absolute+100vw） */
+/* 全屏宽横线：main 上 --bleed-shift = 视口左缘到线起点的距离，FullBleedLine 用 ml:calc(-1*var(--bleed-shift)) + w-screen */
