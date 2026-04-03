@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "rm -rf docs && next build",
+    "build": "next build",
     "start": "next start",
     "commit": "git add . && cz",
     "format": "prettier --write .",

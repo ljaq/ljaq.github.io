@@ -1,8 +1,0 @@
-1:"$Sreact.fragment"
-2:I[96813,["/note/_next/static/chunks/65e27c57b3ff14db.js","/note/_next/static/chunks/d58a59e859878d6e.js"],"ViewportBoundary"]
-4:I[96813,["/note/_next/static/chunks/65e27c57b3ff14db.js","/note/_next/static/chunks/d58a59e859878d6e.js"],"MetadataBoundary"]
-5:"$Sreact.suspense"
-7:I[92779,["/note/_next/static/chunks/65e27c57b3ff14db.js","/note/_next/static/chunks/d58a59e859878d6e.js"],"IconMark"]
-0:{"buildId":"I5Kg8CRDvj1QpW2qiv4h6","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],null]}],"loading":null,"isPartial":false}
-3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-6:[["$","title","0",{"children":"文章 · 你的名字"}],["$","meta","1",{"name":"description","content":"MDX 书写的技术文章与笔记。"}],["$","link","2",{"rel":"icon","href":"/note/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L7","3",{}]]
