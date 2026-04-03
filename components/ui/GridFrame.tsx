@@ -23,7 +23,7 @@ export function GridFrame({ children, className = '', active, fill, double, corn
   const hoverSurface = hover ? 'hover:bg-white' : ''
   return (
     <div
-      className={`relative ${surface} ${hoverSurface} border border-[color:var(--grid-border-color)] m-[-1px] ${
+      className={`relative ${surface} ${hoverSurface} border border-[color:var(--grid-border-color)] -m-t-px -m-b-px ${
         double
           ? 'after:pointer-events-none after:absolute after:inset-0 after:z-0 after:border after:border-[color:var(--grid-border-color)]'
           : ''

@@ -21,7 +21,9 @@ export function SiteShell({ children }: SiteShellProps) {
           <main
             className='relative z-10 px-4 py-8 md:px-8 md:py-10 lg:px-4 lg:py-10 [--bleed-shift:calc(0.5rem+1px+1.5rem)] md:[--bleed-shift:calc(1rem+260px+1rem+1px+2rem)] lg:[--bleed-shift:calc(50vw-28rem+260px+1rem+1px+2.5rem)]'
           >
+            <div className='absolute h-dvh left-4 top-0 w-px bg-[color:var(--grid-border-color)]'></div>
             {children}
+            <div className='absolute h-dvh right-4 top-0 w-px bg-[color:var(--grid-border-color)]'></div>
           </main>
           <SiteFooter />
         </div>

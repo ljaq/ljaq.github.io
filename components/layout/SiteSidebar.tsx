@@ -9,6 +9,7 @@ import { SocialSketchGrid } from './SocialSketchGrid'
 import { IconArticle, IconFolder, IconHome, IconUser } from '@/components/icons/NavIcons'
 import { SidebarClock } from './SidebarClock'
 import { FolderTwoTone, HomeTwoTone, IdcardTwoTone, ProfileTwoTone } from '@ant-design/icons'
+import { SectionLabel } from '../ui'
 
 export function SiteSidebar() {
   return (
@@ -22,9 +23,7 @@ export function SiteSidebar() {
       <div className='relative z-10 flex min-h-0 flex-1 flex-col overflow-y-auto pb-2 pt-10'>
         <SiteLogo />
 
-        <div className='font-mono text-[10px] uppercase tracking-wider text-neutral-400 mt-16 h-0 flex items-end'>
-          navigation
-        </div>
+        <SectionLabel className='mt-16'>navigation</SectionLabel>
         <nav className='flex flex-col' aria-label='主导航'>
           <SidebarNavItem href='/' icon={<HomeTwoTone twoToneColor={['#000', '#eaeaea']} />}>
             主页
@@ -41,9 +40,7 @@ export function SiteSidebar() {
         </nav>
         <div className='min-h-8 flex-1' aria-hidden />
 
-        <div className='font-mono text-[10px] uppercase tracking-wider text-neutral-400 mt-8 h-0 flex items-end'>
-          social
-        </div>
+        <SectionLabel>social</SectionLabel>
         <SocialSketchGrid />
         <SidebarClock />
       </div>

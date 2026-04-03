@@ -3,30 +3,37 @@ import { AsciiFramePlayer, Button, GridFrame, SectionLabel, SketchFrame } from '
 import { BleedRule, ContentBleedSection } from '@/components/layout/ContentBleed'
 import { SiteShell } from '@/components/layout/SiteShell'
 import { getAllPostsMeta } from '@/lib/posts'
+import TextType from '@/components/ui/TextType'
 
 export default function HomePage() {
   const latest = getAllPostsMeta().slice(0, 2)
 
   return (
     <SiteShell>
+      <SectionLabel index='01'>home</SectionLabel>
       <ContentBleedSection bleed='both' className='mb-12 md:mb-16'>
-        <GridFrame className='p-0 overflow-hidden'>
+        <GridFrame className='p-0 overflow-hidden border-0'>
           <AsciiFramePlayer className='font-mono text-sm text-neutral-500 whitespace-pre-wrap leading-none text-center' />
         </GridFrame>
         <BleedRule />
-        <h1 className='mt-10 max-w-2xl text-3xl font-semibold leading-snug tracking-tight text-ink md:text-[2.35rem] md:leading-tight'>
-          Hello,
+        <h1 className='mt-10 px-1 max-w-2xl text-3xl font-semibold leading-snug tracking-tight text-ink md:text-[2.35rem] md:leading-tight'>
+          {/* Hello,
           <br />
           我是
-          <span className='text-accent-magenta'>李佳棋</span>
+          <span className='text-accent-magenta'>李佳棋</span> */}
+          <TextType
+            loop={true}
+            showCursor
+            cursorCharacter='_'
+            text={['Hello,', '我是', '李佳棋']}
+            textColors={['#000000', '#000000', '#e01e5a']}
+          />
         </h1>
         <BleedRule />
-        <p className='mt-6 max-w-xl text-lg leading-relaxed text-ink/80'>
-          全栈 / 产品向开发者（示例）。本站采用{' '}
-          <strong className='font-semibold text-accent-red'>Next.js 预渲染</strong>
-          、MDX 文章与左侧固定导航；右侧内容区略白于点阵底，标题横线全宽且在侧栏层级之下。
+        <p className='mt-4 px-1 max-w-xl text-lg text-ink/80 text-justify'>
+          多年前端/全栈开发经验，具备独立负责大型项目、进行技术选型和架构设计的能力。
         </p>
-        <div className='mt-8 flex flex-wrap gap-3'>
+        <div className='mt-8 flex flex-wrap gap-3 transform translate-y-px'>
           <Button href='/about' variant='primary'>
             查看简历
           </Button>
@@ -42,7 +49,7 @@ export default function HomePage() {
       <ContentBleedSection bleed='both' className='mb-16 md:mb-24'>
         <div className='grid gap-8 md:grid-cols-2'>
           <SketchFrame as='section'>
-            <SectionLabel index='02'>能力</SectionLabel>
+            <SectionLabel index='02'>ability</SectionLabel>
             <h2 className='mt-3 text-2xl font-semibold tracking-tight text-ink'>你能写在这里</h2>
             <ul className='mt-4 space-y-2 text-ink/80'>
               <li className='flex gap-2'>
@@ -60,7 +67,7 @@ export default function HomePage() {
             </ul>
           </SketchFrame>
           <SketchFrame as='section'>
-            <SectionLabel index='03'>最近文章</SectionLabel>
+            <SectionLabel index='03'>recent</SectionLabel>
             <h2 className='mt-3 text-2xl font-semibold tracking-tight text-ink'>博客</h2>
             {latest.length === 0 ? (
               <p className='mt-4 text-ink/60'>在 content/posts 下添加 .mdx 即可。</p>

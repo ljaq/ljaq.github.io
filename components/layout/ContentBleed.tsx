@@ -7,7 +7,7 @@ import type { ReactNode } from 'react'
 export function FullBleedLine({ className = '' }: { className?: string }) {
   return (
     <div
-      className={`pointer-events-none relative z-[5] h-px w-[150vw] max-w-[150vw] bg-[color:var(--grid-border-color)] ml-[calc(-1*var(--bleed-shift,0.5rem))] ${className}`}
+      className={`pointer-events-none relative z-5 h-px w-[150vw] max-w-[150vw] bg-grid-border ml-[calc(-1*var(--bleed-shift,0.5rem))] ${className}`}
       aria-hidden
     />
   )

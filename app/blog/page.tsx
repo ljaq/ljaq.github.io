@@ -16,7 +16,7 @@ export default function BlogIndexPage() {
   return (
     <SiteShell>
       <ContentBleedSection bleed='both'>
-        <SectionLabel index='01'>博客</SectionLabel>
+        <SectionLabel index='01'>blog</SectionLabel>
         <ContentBleedSection bleed='both' className='mt-14'>
           <h1 className='text-4xl font-semibold tracking-tight text-ink md:text-5xl'>文章</h1>
         </ContentBleedSection>
