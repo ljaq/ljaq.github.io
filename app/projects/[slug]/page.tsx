@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Button, SectionLabel } from '@/components/ui'
 import { BleedRule, ContentBleedSection } from '@/components/layout/ContentBleed'
 import { SiteShell } from '@/components/layout/SiteShell'
-import { getCompiledProject, getProjectSlugs } from '@/lib/projects-mdx'
+import { getCompiledProject, getProjectSlugs, hasProjectSlug } from '@/lib/projects-mdx'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  if (!getProjectSlugs().includes(slug)) return {}
+  if (!hasProjectSlug(slug)) return {}
   const { frontmatter } = await getCompiledProject(slug)
   return {
     title: frontmatter.title,
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params
-  if (!getProjectSlugs().includes(slug)) notFound()
+  if (!hasProjectSlug(slug)) notFound()
 
   const { content, frontmatter } = await getCompiledProject(slug)
 

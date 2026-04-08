@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { mdxComponents } from '@/lib/mdx-components'
+import { canonicalSlugFromRoute, listMdxSlugsFromDir, readMdxSource } from '@/lib/slug'
 
 const PROJECTS_DIR = path.join(process.cwd(), 'content/projects')
 
@@ -17,15 +18,18 @@ export type ProjectFrontmatter = {
 }
 
 function readSource(slug: string): string {
-  return fs.readFileSync(path.join(PROJECTS_DIR, `${slug}.mdx`), 'utf8')
+  const src = readMdxSource(PROJECTS_DIR, slug)
+  if (!src) throw new Error(`Project not found: ${slug}`)
+  return src
 }
 
 export function getProjectSlugs(): string[] {
-  if (!fs.existsSync(PROJECTS_DIR)) return []
-  return fs
-    .readdirSync(PROJECTS_DIR)
-    .filter(f => f.endsWith('.mdx'))
-    .map(f => f.replace(/\.mdx$/, ''))
+  return listMdxSlugsFromDir(PROJECTS_DIR)
+}
+
+export function hasProjectSlug(slug: string): boolean {
+  const key = canonicalSlugFromRoute(slug)
+  return getProjectSlugs().some(s => s === key)
 }
 
 export function getAllProjectsMeta(): (ProjectFrontmatter & { slug: string })[] {

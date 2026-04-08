@@ -7,8 +7,13 @@ import type { NextConfig } from 'next'
  */
 const basePath = process.env.PAGES_BASE_PATH ?? ''
 
+/**
+ * 仅在生产构建时启用 static export。非 ASCII slug 与 `output: 'export'` 在 dev 中的问题见
+ * vercel/next.js#92192；官方修复为 PR #92194（合并进 stable 后可考虑恢复「始终 export」）。
+ * 生产 `next build` 仍会静态导出到 `out/`。
+ */
 const nextConfig: NextConfig = {
-  output: 'export',
+  ...(process.env.NODE_ENV === 'production' ? { output: 'export' as const } : {}),
   basePath,
   /** 供客户端组件中拼接 public 资源路径（与 basePath 一致） */
   env: {

@@ -1,8 +1,6 @@
 1:"$Sreact.fragment"
-2:I[96813,["/_next/static/chunks/65e27c57b3ff14db.js","/_next/static/chunks/d58a59e859878d6e.js"],"ViewportBoundary"]
-4:I[96813,["/_next/static/chunks/65e27c57b3ff14db.js","/_next/static/chunks/d58a59e859878d6e.js"],"MetadataBoundary"]
-5:"$Sreact.suspense"
-7:I[92779,["/_next/static/chunks/65e27c57b3ff14db.js","/_next/static/chunks/d58a59e859878d6e.js"],"IconMark"]
-0:{"buildId":"y3lF3jf-KPUpS4vJWZ8Hx","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],null]}],"loading":null,"isPartial":false}
-3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}]]
-6:[["$","title","0",{"children":"李佳棋 · 简历与作品"}],["$","meta","1",{"name":"description","content":"手绘线条风格的个人网站：简历、项目与 MDX 文章。"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0b3bf435.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L7","3",{}]]
+2:I[88066,["/_next/static/chunks/0n1care8owf.-.js","/_next/static/chunks/15wtd2y694ub3.js"],"ViewportBoundary"]
+3:I[88066,["/_next/static/chunks/0n1care8owf.-.js","/_next/static/chunks/15wtd2y694ub3.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[27202,["/_next/static/chunks/0n1care8owf.-.js","/_next/static/chunks/15wtd2y694ub3.js"],"IconMark"]
+0:{"rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"李佳棋 · 简历与作品"}],["$","meta","1",{"name":"description","content":"手绘线条风格的个人网站：简历、项目与 MDX 文章。"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L5","3",{}]]}]}]}],null]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"UnHJ2s_N8OtXNeocWABrz"}

@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[88066,["/_next/static/chunks/0n1care8owf.-.js","/_next/static/chunks/15wtd2y694ub3.js"],"ViewportBoundary"]
+3:I[88066,["/_next/static/chunks/0n1care8owf.-.js","/_next/static/chunks/15wtd2y694ub3.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+5:I[27202,["/_next/static/chunks/0n1care8owf.-.js","/_next/static/chunks/15wtd2y694ub3.js"],"IconMark"]
+0:{"rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, maximum-scale=5"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"营商通企业服务平台 · 李佳棋"}],["$","meta","1",{"name":"description","content":"为通化市政府开发的用于公布市级政策及租赁发布平台。包含首页、惠企服务、营商优化、产业服务、人才服务、工业园区、租赁信息、求租求购、留言、意见征集、智能客服等模块。"}],["$","link","2",{"rel":"icon","href":"/favicon.ico?favicon.0x3dzn~oxb6tn.ico","sizes":"256x256","type":"image/x-icon"}],["$","$L5","3",{}]]}]}]}],null]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"UnHJ2s_N8OtXNeocWABrz"}

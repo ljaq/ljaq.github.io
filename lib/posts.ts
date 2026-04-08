@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { mdxComponents } from '@/lib/mdx-components'
+import { canonicalSlugFromRoute, listMdxSlugsFromDir, readMdxSource } from '@/lib/slug'
 
 const POSTS_DIR = path.join(process.cwd(), 'content/posts')
 
@@ -15,15 +16,19 @@ export type PostFrontmatter = {
 }
 
 function readSource(slug: string): string {
-  return fs.readFileSync(path.join(POSTS_DIR, `${slug}.mdx`), 'utf8')
+  const src = readMdxSource(POSTS_DIR, slug)
+  if (!src) throw new Error(`Post not found: ${slug}`)
+  return src
 }
 
 export function getPostSlugs(): string[] {
-  if (!fs.existsSync(POSTS_DIR)) return []
-  return fs
-    .readdirSync(POSTS_DIR)
-    .filter(f => f.endsWith('.mdx'))
-    .map(f => f.replace(/\.mdx$/, ''))
+  return listMdxSlugsFromDir(POSTS_DIR)
+}
+
+/** 是否存在该文章（slug 与磁盘 NFC 对齐，含 URL 编码与 NFC） */
+export function hasPostSlug(slug: string): boolean {
+  const key = canonicalSlugFromRoute(slug)
+  return getPostSlugs().some(s => s === key)
 }
 
 export function getAllPostsMeta(): (PostFrontmatter & { slug: string })[] {

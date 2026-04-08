@@ -1,0 +1,35 @@
+---
+title: 图片懒加载示例
+description: 演示在 MDX 中使用 LazyImage：进入视口再请求图片，加载过程由 Spin + RoseCurveLoading 占位。
+date: '2026-04-08'
+tags:
+  - MDX
+  - LazyImage
+---
+
+滚动页面，当某张图进入视口（并满足预加载边距）后才会发起网络请求；未加载完成前会看到玫瑰线动画占位。
+
+## JSX：显式使用 LazyImage
+
+下面两张使用 `picsum.photos` 占位图，便于观察懒加载与占位效果。
+
+<LazyImage
+  src="https://picsum.photos/seed/note-demo-1/960/540"
+  alt="宽屏示例图一"
+  placeholderMinHeight="15rem"
+  rootMargin="120px 0px"
+/>
+
+<LazyImage
+  src="https://picsum.photos/seed/note-demo-2/800/600"
+  alt="竖向留白略小的示例图二"
+  placeholderMinHeight="10rem"
+/>
+
+## Markdown 图片语法
+
+标准 `![说明](地址)` 在站点里同样会走 **LazyImage** 渲染（见 `lib/mdx-components.tsx` 中的 `img` 映射）。
+
+![Vercel 徽标](/vercel.svg)
+
+本地 `public` 资源也会按需进入视口后再加载。

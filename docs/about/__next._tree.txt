@@ -1,3 +1,3 @@
-:HL["/_next/static/chunks/9a7d93b4d5da7f68.css","style"]
+:HL["/_next/static/chunks/0kak_gp_grl6o.css","style"]
 :HL["/images/wechat.png","image"]
-0:{"buildId":"y3lF3jf-KPUpS4vJWZ8Hx","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"about","paramType":null,"paramKey":"about","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"about","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"UnHJ2s_N8OtXNeocWABrz"}

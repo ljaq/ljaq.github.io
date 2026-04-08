@@ -1,5 +1,7 @@
 import type { MDXComponents } from 'mdx/types'
 import { MdxH2, MdxH3 } from '@/components/mdx/MdxBleedHeadings'
+import { LazyImage } from '@/components/ui/LazyImage'
+import { cn } from '@/lib/utils'
 
 export const mdxComponents: MDXComponents = {
   h1: props => (
@@ -7,7 +9,10 @@ export const mdxComponents: MDXComponents = {
   ),
   h2: props => <MdxH2 {...props} />,
   h3: props => <MdxH3 {...props} />,
-  p: props => <p className='mb-4 leading-relaxed text-ink/85' {...props} />,
+  /** 用 div 避免段落内嵌 LazyImage 的 div 造成非法 DOM（<p> 内不能有块级 div）与 hydration 报错 */
+  p: ({ className, ...props }) => (
+    <div role='paragraph' className={cn('mb-4 leading-relaxed text-ink/85', className)} {...props} />
+  ),
   a: props => (
     <a
       className='text-accent-magenta underline decoration-dotted decoration-accent-magenta/50 underline-offset-[5px] transition hover:text-accent-magenta/90'
@@ -29,10 +34,18 @@ export const mdxComponents: MDXComponents = {
     />
   ),
   hr: () => <hr className='my-10 border-0 border-t border-[color:var(--grid-border-color)]' />,
-  img: props => (
-    <span className='my-6 block'>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className='h-auto max-w-full border border-[color:var(--grid-border-color)]' alt='' {...props} />
-    </span>
-  ),
+  LazyImage,
+  img: props => {
+    const { src, alt, className, ...rest } = props
+    if (!src || typeof src !== 'string') return null
+    return (
+      <LazyImage
+        src={src}
+        alt={typeof alt === 'string' ? alt : ''}
+        className={cn('my-6 max-w-full border border-grid-border', className)}
+        placeholderMinHeight='12rem'
+        {...rest}
+      />
+    )
+  },
 }

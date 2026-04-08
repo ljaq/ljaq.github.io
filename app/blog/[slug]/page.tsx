@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { SectionLabel } from '@/components/ui'
 import { BleedRule, ContentBleedSection } from '@/components/layout/ContentBleed'
 import { SiteShell } from '@/components/layout/SiteShell'
-import { getCompiledPost, getPostSlugs } from '@/lib/posts'
+import { getCompiledPost, getPostSlugs, hasPostSlug } from '@/lib/posts'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  if (!getPostSlugs().includes(slug)) return {}
+  if (!hasPostSlug(slug)) return {}
   const { frontmatter } = await getCompiledPost(slug)
   return {
     title: frontmatter.title,
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  if (!getPostSlugs().includes(slug)) notFound()
+  if (!hasPostSlug(slug)) notFound()
 
   const { content, frontmatter } = await getCompiledPost(slug)
 
